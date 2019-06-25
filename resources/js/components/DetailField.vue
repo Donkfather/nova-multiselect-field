@@ -23,7 +23,11 @@ export default {
       if (!this.field.value) return;
 
       const valuesArray = JSON.parse(this.field.value);
+      console.log(valuesArray,Array.isArray(valuesArray),valuesArray.length);
       if (!Array.isArray(valuesArray) || !valuesArray.length) return;
+
+      console.log(valuesArray
+              .map(val => this.field.options.find(opt => String(opt.value) === String(val))))
 
       return valuesArray
         .map(val => this.field.options.find(opt => String(opt.value) === String(val)))
