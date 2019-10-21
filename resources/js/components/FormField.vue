@@ -27,13 +27,6 @@
 <script>
 import {FormField, HandlesValidationErrors} from 'laravel-nova';
 import Multiselect from 'vue-multiselect';
-import slugify from '../slugify';
-
-function mapResources(resources) {
-    return _.map(resources, function (resource) {
-        return resource.id.value;
-    });
-}
 
 export default {
     components: {Multiselect},
@@ -117,7 +110,7 @@ export default {
         createOption(newTag) {
             const tag = {
                 label: newTag,
-                value: slugify(newTag)
+                value: newTag,
             };
             this.field.options.push(tag);
             this.handleChange([...this.selected, tag]);
